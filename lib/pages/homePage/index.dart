@@ -39,12 +39,28 @@ class _HomePageState extends State<HomePage> {
     // );
   }
 
-  getSubTitle(i) {
+  String getSubTitle(i) {
     if (i == store.list.length - 1) {
-      return '间隔： 0 小时 0 分钟 0 秒';
+      return '0 小时 0 分钟 0 秒';
     }
     Duration diff = DateUtils.diff(store.list[i], store.list[i + 1]);
     return "${diff.inHours} 小时 ${diff.inMinutes % 60} 分钟 ${diff.inSeconds % 60} 秒";
+  }
+
+  bool isDiffDay(i) {
+    if (i == 0) {
+      return true;
+    }
+    if (i == store.list.length - 1) {
+      return false;
+    }
+    DateTime date1 = DateUtils.toDateTime(store.list[i]);
+    DateTime date2 = DateUtils.toDateTime(store.list[i + 1]);
+
+    if (date1.day != date2.day) {
+      return true;
+    }
+    return false;
   }
 
   getList() {
