@@ -4,21 +4,7 @@ import 'package:flutter/material.dart';
 class HomePageProvider with ChangeNotifier {
   final String _storeKey = "";
 
-  int _num = 0;
-
   List<String> list = [];
-
-  get count => _num;
-
-  void add() {
-    _num++;
-    notifyListeners();
-  }
-
-  void dec() {
-    _num--;
-    notifyListeners();
-  }
 
   HomePageProvider() {
     _getRecordList();
@@ -29,11 +15,17 @@ class HomePageProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  insert(String item) {
+  void insert(String item) {
     list.insert(0, item);
-    if (list.length > 10) {
-      list.removeLast();
-    }
+    // if (list.length > 10) {
+    //   list.removeLast();
+    // }
+    notifyListeners();
+    LocalStorage.setStringList(_storeKey, list);
+  }
+
+  void remove(String item){
+    list.remove(item);
     notifyListeners();
     LocalStorage.setStringList(_storeKey, list);
   }

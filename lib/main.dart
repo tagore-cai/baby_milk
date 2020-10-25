@@ -18,14 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: '宝宝吃奶了',
+        title: '宝宝计划',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: ChangeNotifierProvider<HomePageProvider>(
           create: (_) => HomePageProvider(),
-          child: HomePage(title: '宝宝吃奶了'),
+          child: HomePage(title: '吃奶时光'),
         ));
   }
 }
