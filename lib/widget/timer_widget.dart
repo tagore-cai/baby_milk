@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class TimerWidget extends StatefulWidget {
   final String date;
+  final String event;
 
-  TimerWidget({Key key, this.date}) : super(key: key);
+  TimerWidget({Key key, this.date, this.event}) : super(key: key);
 
   @override
   _TimerWidgetState createState() => _TimerWidgetState();
@@ -34,7 +35,7 @@ class _TimerWidgetState extends State<TimerWidget> {
     return Container(
       padding: EdgeInsets.only(top: 20, bottom: 10),
       child: Text(
-        '距离上次喂奶 ${diff.inHours} 小时 ${diff.inMinutes % 60} 分钟 ${diff.inSeconds % 60} 秒',
+        '距离上次${widget.event} ${diff.inHours} 小时 ${diff.inMinutes % 60} 分钟 ${diff.inSeconds % 60} 秒',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.w600,

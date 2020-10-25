@@ -1,12 +1,12 @@
 import 'package:baby_milk/utils/local_storage.dart';
 import 'package:flutter/material.dart';
 
-class HomePageProvider with ChangeNotifier {
+class MilkPageProvider with ChangeNotifier {
   final String _storeKey = "";
 
   List<String> list = [];
 
-  HomePageProvider() {
+  MilkPageProvider() {
     _getRecordList();
   }
 
